@@ -1,0 +1,29 @@
+{
+  "name": "serganbus/guzzle-stubs",
+  "description": "Stubs system for guzzle http client",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ivanov Sergey",
+      "email": "sega234@mail.ru",
+      "homepage": "https://github.com/Serganbus"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Serganbus\\Http\\GuzzleStubs\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Serganbus\\Http\\GuzzleStubs\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^6.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  }
+}
