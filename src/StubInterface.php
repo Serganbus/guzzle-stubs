@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Интерфейс для получения стабовых ответов
- * 
+ *
  * @author Serganbus <sega234@mail.ru>
  */
 interface StubInterface

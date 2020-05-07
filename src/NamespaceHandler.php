@@ -20,7 +20,7 @@ class NamespaceHandler
     private $rootNs;
     
     /**
-     * 
+     *
      * @param string $rootNs Корневое пространство имен, в котором находятся обработчики ответов
      */
     public function __construct(string $rootNs)
