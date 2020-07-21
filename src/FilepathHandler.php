@@ -25,7 +25,7 @@ class FilepathHandler
      */
     public function __construct(string $rootDir)
     {
-        $this->rootDir = trim($rootDir, '/');
+        $this->rootDir = rtrim($rootDir, '/');
     }
     
     /**
