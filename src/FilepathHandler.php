@@ -36,16 +36,16 @@ class FilepathHandler
     public function __invoke(RequestInterface $req, array $options)
     {
         try {
-            $classFullPath = $this->getClassFullPath($req);
-            require $classFullPath;
-            
-            $className = $this->getClassName($req);
-            $handler = new $className();
-            if (!($handler instanceof StubInterface)) {
-                throw new \Exception("{$classFullPath} should implement \Serganbus\Http\GuzzleStubs\StubInterface");
+            $contentFullPath = $this->getClassFullPath($req);
+            if (!file_exists($contentFullPath)) {
+                throw new \Exception("File '{$contentFullPath}' not exist");
             }
+            $content = require $contentFullPath;
+            if (!is_array($content) || !isset($content['code']) || !isset($content['content'])) {
+                throw new \Exception("{$contentFullPath} should return array with 'code' and 'content' key elements");
+            }
+            $response = new Response($content['code'], ['X-Header' => 'stub'], $content['content']);
             
-            $response = $handler->handle($req);
         } catch (Exception $ex) {
             $response = new Response(500, ['X-Header' => 'stub'], $ex->getMessage());
         }
